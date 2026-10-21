@@ -169,6 +169,7 @@
     "linkUrl": "链接 URL",
     "codeBlock": "代码块",
     "table": "表格",
+    "todoList": "待办列表",
     "tableAddRow": "添加行",
     "tableDeleteRow": "删除行",
     "tableAddColumn": "添加列",

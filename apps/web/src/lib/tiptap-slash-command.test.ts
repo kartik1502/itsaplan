@@ -10,6 +10,16 @@ describe('buildSlashItems', () => {
       ['Code'],
     );
 
+    const issue = buildSlashItems({
+      codeBlockLabel: 'Code',
+      tableLabel: 'Table',
+      taskListLabel: 'To-do list',
+    });
+    assert.deepEqual(
+      issue.map((item) => item.title),
+      ['To-do list', 'Code', 'Table'],
+    );
+
     const docs = buildSlashItems({
       codeBlockLabel: 'Code',
       tableLabel: 'Table',

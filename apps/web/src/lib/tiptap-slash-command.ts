@@ -34,6 +34,8 @@ export type SlashCommandOptions = {
   codeBlockLabel: string;
   // Omitted where the editor has no table extension, which drops the Table item.
   tableLabel?: string;
+  // Omitted where task lists are not supported or when full blocks are defined.
+  taskListLabel?: string;
   // Omitted where there is nothing to pick from, which drops the Image item.
   image?: { label: string; onPick: () => void };
   // Editors that expose a richer block schema opt into these commands. Keeping
@@ -93,6 +95,14 @@ export function buildSlashItems(options: SlashCommandOptions): SlashItem[] {
           editor.chain().focus().deleteRange(range).toggleBlockquote().run(),
       },
     );
+  }
+  if (options.taskListLabel && !options.blocks) {
+    items.push({
+      title: options.taskListLabel,
+      icon: CheckSquare2,
+      run: ({ editor, range }) =>
+        editor.chain().focus().deleteRange(range).toggleTaskList().run(),
+    });
   }
   items.push({
     title: options.codeBlockLabel,

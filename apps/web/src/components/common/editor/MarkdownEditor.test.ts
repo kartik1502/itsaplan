@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { afterEach, beforeEach, describe, it } from 'node:test';
 import { Editor } from '@tiptap/core';
 import Link from '@tiptap/extension-link';
+import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
 import StarterKit from '@tiptap/starter-kit';
 import { Markdown } from 'tiptap-markdown';
 import { JSDOM } from 'jsdom';
@@ -330,6 +332,22 @@ describe('MarkdownEditor markdown round trip', () => {
     const roundTripped = editor.storage.markdown.getMarkdown();
     assert.equal(roundTripped, 'See <https://example.com/spec> for details.');
     assert.notEqual(roundTripped, 'See https://example.com/spec for details.');
+    editor.destroy();
+  });
+
+  it('serialises checked and unchecked task list items back to markdown', () => {
+    const editor = new Editor({
+      extensions: [
+        StarterKit.configure(editorStarterKitOptions),
+        TaskList,
+        TaskItem.configure({ nested: true }),
+        Markdown.configure({ html: true, linkify: true, breaks: true }),
+      ],
+      content: '- [ ] To do\n- [x] Done',
+    });
+
+    const roundTripped = editor.storage.markdown.getMarkdown();
+    assert.equal(roundTripped, '- [ ] To do\n\n- [x] Done');
     editor.destroy();
   });
 });

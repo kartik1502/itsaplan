@@ -3,6 +3,7 @@ import { type Editor } from '@tiptap/react';
 import { BubbleMenu } from '@tiptap/react/menus';
 import {
   Bold,
+  CheckSquare2,
   Code,
   Heading1,
   Heading2,
@@ -72,6 +73,11 @@ const ITEMS: {
     name: 'orderedList',
     icon: ListOrdered,
     run: (editor) => editor.chain().focus().toggleOrderedList().run(),
+  },
+  {
+    name: 'taskList',
+    icon: CheckSquare2,
+    run: (editor) => editor.chain().focus().toggleTaskList().run(),
   },
 ];
 

@@ -169,6 +169,7 @@
     "linkUrl": "URL ссылки",
     "codeBlock": "Блок кода",
     "table": "Таблица",
+    "todoList": "Список задач",
     "tableAddRow": "Добавить строку",
     "tableDeleteRow": "Удалить строку",
     "tableAddColumn": "Добавить столбец",

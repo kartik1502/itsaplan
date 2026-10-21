@@ -169,6 +169,7 @@
     "linkUrl": "링크 URL",
     "codeBlock": "코드 블록",
     "table": "테이블",
+    "todoList": "할 일 목록",
     "tableAddRow": "행 추가",
     "tableDeleteRow": "행 삭제",
     "tableAddColumn": "열 추가",

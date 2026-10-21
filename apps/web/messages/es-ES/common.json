@@ -169,6 +169,7 @@
     "linkUrl": "URL del enlace",
     "codeBlock": "Bloque de código",
     "table": "Tabla",
+    "todoList": "Lista de tareas",
     "tableAddRow": "Añadir fila",
     "tableDeleteRow": "Eliminar fila",
     "tableAddColumn": "Añadir columna",
